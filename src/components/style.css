@@ -1,0 +1,92 @@
+.body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   
+    
+    
+    }
+    
+    .app{
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(211, 221, 218);
+        color: aliceblue;
+
+        background-size: cover;
+        background: rgb(34,193,195);
+        background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(169,143,85,1) 44%);
+    
+    }
+    .temper{
+        font-size: 3rem;
+    }
+    .heading{
+    
+        text-align: center;
+        font-weight: 300;
+        font-size: xx-large;
+    }
+    
+    
+    .container{
+    height: 600px;
+    margin: auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    .serach{
+    
+    text-align: center;
+    padding: 1rem;
+    
+    }
+    .serach input{
+    padding: .7rem 1.5rem ;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 1px solid rgb(237, 219, 219);
+    background: rgba(255, 255, 255, 0.2);
+    color:wheat;
+    width: 50%;
+    
+    }
+    .upper-half{
+    
+        text-align: center;
+    }
+    .lower-half{
+        box-sizing: border-box;
+        font-size: 1.4rem;
+         padding: 1rem;
+         text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: rgba(35, 28, 28, 0.3);
+        margin: 0 30px 40px 30px;
+        border-radius: 12px;  
+       
+    }
+    .uppercase{
+    font-weight: 800;
+    }
+    ::placeholder{
+        color: wheat;
+    }
+    .cityname{
+        font-size: 2rem;
+        font-weight: 200px;
+    }
+    .Timeda{
+    color:rgb(187, 130, 130);
+    position: absolute;
+    font-size: 1.2rem;
+    font-style: oblique;
+    text-shadow: 3px;
+    top: 2%;
+    left:10px
+    }
+    
