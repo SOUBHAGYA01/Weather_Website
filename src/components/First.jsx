@@ -39,52 +39,61 @@ if(cityName==undefined){
       
       }
 
+  const [isFahrenheit, setIsFahrenheit] = useState(true);
+
+  // Helper to convert F to C
+  const getTemperature = () => {
+    if (!data.main) return null;
+    const tempF = data.main.temp;
+    if (isFahrenheit) return `${tempF}°F`;
+    const tempC = ((tempF - 32) * 5) / 9;
+    return `${tempC.toFixed(1)}°C`;
+  };
+
   return (
-   
-<>
-
-<div className="app">
-
-<div className='heading'>
-Welcome to weather website
-</div>
-
-
-    <div className="serach">
-      <input type="text" value={cityName} onChange={event=>setCityName(event.target.value)} 
-      onKeyPress={submitSearch}
-      placeholder='Enter city name'      
-      name="" id="" />
-
-    </div>
-
-    <div className="container">
-       <div className="upper-half">
-        <div className="cityname">
-            
-             {data.name}
-              
+    <>
+      <div className="app">
+        <div className='heading'>
+          Welcome to weather website 
         </div>
-       <div className="temper">
-          {
-                 data.main ? <div>{data.main.temp}°F</div>:null
-          }              
-       </div>
-       <div className="decs">
-       {
-                 data.weather ? <div>{data.weather[0].main}</div>:null
-          }      
-       </div>   
-       </div>
 
-       {data.name!=undefined && <Third data={data}/>}
+        <div className="serach">
+          <input
+            type="text"
+            value={cityName}
+            onChange={event => setCityName(event.target.value)}
+            onKeyPress={submitSearch}
+            placeholder='Enter city name'
+          />
+        </div>
 
+        <div className="container">
+          <div className="upper-half">
+            <div className="cityname">
+              {data.name}
+            </div>
+            <div className="temper">
+              {data.main ? (
+                <>
+                  <div>{getTemperature()}</div>
+                  <button
+                    onClick={() => setIsFahrenheit(prev => !prev)}
+                    className="toggle-temp"
+                  >
+                    Show in {isFahrenheit ? 'Celsius' : 'Fahrenheit'}
+                  </button>
+                </>
+              ) : null}
+            </div>
+            <div className="decs">
+              {data.weather ? <div>{data.weather[0].main}</div> : null}
+            </div>
+          </div>
 
-    </div>
-</div>
-
-</>
-
+          {data.name != undefined && <Third data={data} />}
+        </div>
+      </div>
+    </>
   )
 }
 
